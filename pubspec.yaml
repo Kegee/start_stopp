@@ -1,0 +1,36 @@
+name: start_stopp
+description: Scanner d'ordonnance, Indicateur des critères Start & Stopp
+
+version: 1.1.0
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons:
+  cloud_firestore:
+  image_picker:
+  mlkit:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  image_path: "assets/launcher/drug.png"
+  android: true
+  os: true
+  
+flutter:
+  uses-material-design: true
+  assets:
+   - assets/launcher/drug.png
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: fonts/OpenSans-Regular.ttf
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf

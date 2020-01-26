@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">951333901105-iag828kcdbutrmu6fto2hn2u8p57ru1s.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://start-stopp.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">951333901105</string>
+    <string name="google_api_key" translatable="false">AIzaSyDsRrtbNH7GYmk5Ri3Bznd9GVZuOMtQTwo</string>
+    <string name="google_app_id" translatable="false">1:951333901105:android:3589ebb4ed0edf02</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDsRrtbNH7GYmk5Ri3Bznd9GVZuOMtQTwo</string>
+    <string name="google_storage_bucket" translatable="false">start-stopp.appspot.com</string>
+    <string name="project_id" translatable="false">start-stopp</string>
+</resources>

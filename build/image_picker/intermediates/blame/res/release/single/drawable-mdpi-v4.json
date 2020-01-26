@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    }
+]
