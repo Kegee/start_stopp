@@ -1,18 +1,18 @@
 [
     {
-        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable\\notification_bg.xml",
+        "merged": "C:\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "C:\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable\\notification_bg.xml",
         "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable\\notification_bg.xml"
     },
     {
-        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable\\notification_tile_bg.xml",
-        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable\\notification_tile_bg.xml"
-    },
-    {
-        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable\\notification_bg_low.xml",
+        "merged": "C:\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable\\notification_bg_low.xml",
         "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable\\notification_bg_low.xml"
     },
     {
-        "merged": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable\\notification_icon_background.xml",
-        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable\\notification_icon_background.xml"
+        "merged": "C:\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\drawable\\notification_tile_bg.xml"
     }
 ]

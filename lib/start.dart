@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'stopp.dart';
-import 'interaction.dart';
 
 class StartPage extends StatefulWidget {
   @override
@@ -12,6 +11,7 @@ class _StartPageState extends State<StartPage> with SingleTickerProviderStateMix
   static Color bleuC = Color(0xFF74b9ff);
   static Color bleuF = Color(0xFF4da6ff);
   Symptome _selectedSymptome;
+  List<Symptome> _selectedSymptoms;
   bool _symptomesLoaded = false;
   
   List<bool> _checked;
@@ -19,7 +19,7 @@ class _StartPageState extends State<StartPage> with SingleTickerProviderStateMix
   List<String> _drugs = [];
   Widget _widget = Column(
     children: <Widget>[
-      Text("Chargement des symptômes"),
+      Text("Chargement des antécédents"),
       CircularProgressIndicator(),
     ],
   );
@@ -31,7 +31,7 @@ class _StartPageState extends State<StartPage> with SingleTickerProviderStateMix
       setState(() {
         symptomesList = newSymptomesList;
         _widget = Text(
-          "Veuillez renseigner les symptômes du patient",
+          "Veuillez renseigner les antécèdents du patient",
           style: TextStyle(
             fontSize: 22,
             color: bleuF,
@@ -99,7 +99,7 @@ class _StartPageState extends State<StartPage> with SingleTickerProviderStateMix
               ListTile(
                 leading: Icon(Icons.check_circle, color: Colors.green),
                 title: Text(
-                  'Sélecteur de Symptômes',
+                  'Sélecteur d\'antécèdents',
                   style: Theme.of(context).textTheme.subtitle,
                 ),
                 onTap: () {
@@ -107,24 +107,6 @@ class _StartPageState extends State<StartPage> with SingleTickerProviderStateMix
                     context,
                     new MaterialPageRoute(
                       builder: (context) => new StartPage()
-                    ),
-                  );
-                },
-              ),
-              Divider(
-                height: 1,
-              ),
-              ListTile(
-                leading: Icon(Icons.category,color: Colors.green),
-                title: Text(
-                  'Interactions',
-                  style: Theme.of(context).textTheme.subtitle,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                      builder: (context) => new InteractionPage()
                     ),
                   );
                 },
@@ -179,7 +161,7 @@ class _StartPageState extends State<StartPage> with SingleTickerProviderStateMix
           backgroundColor: bleuC,
           centerTitle: true,
           title: Text(
-            'Sélecteur de Symptômes',
+            'Sélecteur d\'antécèdents',
             style: TextStyle(
               fontSize: 23,
               fontFamily: 'OpenSans',
@@ -261,7 +243,7 @@ class _StartPageState extends State<StartPage> with SingleTickerProviderStateMix
                       _drugs = symptome.drugsToGive;
                     });
                   },
-                  hint: Center(child:Text('Choisissez un symptôme')),
+                  hint: Center(child:Text('Choisissez un antécèdents')),
                   isExpanded: true,
                   // isDense: true,
                 ),
@@ -290,8 +272,9 @@ class _StartPageState extends State<StartPage> with SingleTickerProviderStateMix
           ),
         ),
       );
+    double tailleContainer = 300 + 40 * _drugs.length.toDouble();
     return Container(
-        height: 300,
+        height: tailleContainer,
         child: Card(
           elevation: 3,
           margin: EdgeInsets.all(30),

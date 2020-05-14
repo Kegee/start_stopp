@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\values-fr-rCA\\values-fr-rCA.xml",
+            "outputFile": "C:\\start_stopp\\build\\image_picker\\intermediates\\res\\merged\\release\\values-fr-rCA\\values-fr-rCA.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\values-fr-rCA\\values-fr-rCA.xml",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "outputFile": "C:\\start_stopp\\start_stopp\\build\\image_picker\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
+            "outputFile": "C:\\start_stopp\\build\\image_picker\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\0ca804bc6bf040456e7adcf753ff6c39\\res\\values-fr-rCA\\values-fr-rCA.xml",

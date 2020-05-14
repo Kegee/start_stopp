@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     Color bleuF = Color(0xFF4da6ff);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Start & Stopp App',
+      title: 'OrdoSafE',
       theme: ThemeData(
         primaryColor: bleuF,
         fontFamily: 'Roboto',

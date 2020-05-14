@@ -26,7 +26,7 @@ class _StoppPageState extends State<StoppPage> with SingleTickerProviderStateMix
       ),
       textAlign: TextAlign.center,
     );
-  bool _olderThan65 = false;
+    bool formatHopital = false;
 
   @override
   Widget build(context) {
@@ -84,7 +84,7 @@ class _StoppPageState extends State<StoppPage> with SingleTickerProviderStateMix
               ListTile(
                 leading: Icon(Icons.check_circle, color: Colors.green),
                 title: Text(
-                  'Sélecteur de Symptômes',
+                  'Sélecteur d\'antécèdent',
                   style: Theme.of(context).textTheme.subtitle,
                 ),
                 onTap: () {
@@ -92,24 +92,6 @@ class _StoppPageState extends State<StoppPage> with SingleTickerProviderStateMix
                     context,
                     new MaterialPageRoute(
                       builder: (context) => new StartPage()
-                    ),
-                  );
-                },
-              ),
-              Divider(
-                height: 1,
-              ),
-              ListTile(
-                leading: Icon(Icons.category,color: Colors.green),
-                title: Text(
-                  'Interactions',
-                  style: Theme.of(context).textTheme.subtitle,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                      builder: (context) => new InteractionPage()
                     ),
                   );
                 },
@@ -180,7 +162,7 @@ class _StoppPageState extends State<StoppPage> with SingleTickerProviderStateMix
         ),
         body: _buildBodyStop(),
         floatingActionButton: Container(
-          height: 200,
+          height: 280,
           child: Stack(
             children: <Widget>[
               Align(
@@ -191,26 +173,42 @@ class _StoppPageState extends State<StoppPage> with SingleTickerProviderStateMix
                     Container(
                       height: 60,
                       child: FloatingActionButton(
-                        heroTag: 'olderThan65',
+                        heroTag: 'formatHopital',
                         onPressed: (){
                           setState(() {
-                            _olderThan65 = !_olderThan65; 
+                            formatHopital = !formatHopital; 
                           });
                         },
-                        backgroundColor: (_olderThan65) ? bleuF : Colors.white,
-                        foregroundColor: (_olderThan65) ? Colors.white : bleuF,
+                        backgroundColor: (formatHopital) ? bleuF : Colors.white,
+                        foregroundColor: (formatHopital) ? Colors.white : bleuF,
                         shape: CircleBorder(
                           side: BorderSide(
                             color: bleuF,
                             width: 2,
                           ),
                         ),
-                        child: Text(
-                          '+65',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
+                        child: Icon(Icons.local_hospital),
+                      ),
+                    ),
+                    Container(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 60,
+                      child: FloatingActionButton(
+                        heroTag: 'interactions',
+                        onPressed: (){
+                          List<Drug> _drugsPhoto = [];
+                          for(int i=0;i<_drugs.length; i++) 
+                            if(_drugs[i].category != "") _drugsPhoto.add(_drugs[i]); 
+                          Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                              builder:(context) => new InteractionPage(drugsPhoto: _drugsPhoto) )
+                          );
+                        },
+                        child: Icon(Icons.add_circle),
+                        backgroundColor: bleuF,
                       ),
                     ),
                     Container(
@@ -352,7 +350,7 @@ class _StoppPageState extends State<StoppPage> with SingleTickerProviderStateMix
       ),
       children:<Widget>[
         Text(
-          drug.category,
+          eachfirstUpper(drug.category),
           style: TextStyle(
             color: Colors.red,
             fontSize: 18.0,
@@ -382,7 +380,7 @@ class _StoppPageState extends State<StoppPage> with SingleTickerProviderStateMix
         drug = Drug.fromMap(snapshot.documents[0].data);
         drug.name = eachfirstUpper(drug.name);
         DocumentSnapshot category = await Firestore.instance.collection('categories').document(drug.category).get();
-        drug.category = eachfirstUpper(category.data['name']);
+        drug.category = category.data['name'];
         DocumentSnapshot stopp = await Firestore.instance.collection('stopp').document(category.data['stopp']).get();
         drug.stopp = stopp.data['text'];
     }
@@ -391,18 +389,45 @@ class _StoppPageState extends State<StoppPage> with SingleTickerProviderStateMix
 
   Future<List<Drug>> getDrugs() async {
     List<Drug> drugs = [];
-    RegExp reg = RegExp(r'0|1|2|3|4|5|6|7|8|9|\(|\)|\*|\.');
-    for (VisionText block in _textDetected)
-      for (String line in block.text.split("\n"))
-        for (String word in line.split(RegExp(r" |/"))){
-          Drug drug = await getDrug(word.toUpperCase());
-          if(drug == null && word.length > 3 && reg.allMatches(word).length==0){
-            if(word == word.toUpperCase())
-              drug = Drug(eachfirstUpper(word),'','');
+    RegExp reg = RegExp(r'[0-9]-+([a-zA-Z0-9_\-\.\ \/]+),'); //repère le pattern des prescriptions : type 12-DOLIPRANE,
+    RegExp reg2 = RegExp(r" (0|1|2|3|4|5|6|7|8|9)([a-zA-Z0-9_\-\.\ ]+),"); // repère le pattern des comprimés type : XXXXXX 500MG pharma,
+    RegExp reg3 = RegExp(r","); // repère les virgules
+    RegExp reg4 = RegExp(r"(0|1|2|3|4|5|6|7|8|9)-"); //repère le début du pattern (le chiffre et le tiret)
+    RegExp regMajuscule = RegExp(r"([A-Z])+ ([A-Z]{1}|[0-9]{1})"); // repère les médicaments ecrits comme : BINOCRIT 30 000 ou encore DYACRYOSERUM Solution
+    RegExp regMajASuprimer = RegExp(r" ([A-Z]{1}|[0-9]{1})"); //repère la fin des medicament avec le patter majuscule pour le supprimer
+    for (VisionText block in _textDetected){
+      for (String line in block.text.split("\n")){
+        List<String> prescription = new List<String>();
+        if(formatHopital){
+          if(reg.hasMatch(line)){
+            String temporaryString = reg.stringMatch(line);
+            temporaryString = temporaryString.replaceFirst(reg4, ""); //enlève le début du pattern (le chiffre et le tiret)
+            temporaryString = temporaryString.replaceFirst(reg2.hasMatch(temporaryString)?reg2 : reg3,""); //enlève la fin du pattern, qui dépend en fonction de la precritpions
+            if((temporaryString.split(RegExp(r" |/")).length>2)&&(regMajuscule.hasMatch(temporaryString))){
+               temporaryString = regMajuscule.stringMatch(temporaryString);
+               temporaryString = temporaryString.replaceFirst(regMajASuprimer, "");
+            }
+            prescription.add(temporaryString);
+          }
+        }
+        else{
+          if(regMajuscule.hasMatch(line)){
+            String temporaryString = regMajuscule.stringMatch(line);
+            temporaryString = temporaryString.replaceFirst(regMajASuprimer,"");
+            if(!prescription.contains(temporaryString)) prescription.add(temporaryString);
+          }
+        }
+        for (String medicamentPrescris in prescription){          
+          Drug drug = await getDrug(medicamentPrescris.toUpperCase());
+          if(drug == null && medicamentPrescris.length > 3 && reg.allMatches(medicamentPrescris).length==0){
+            if(medicamentPrescris == medicamentPrescris.toUpperCase())
+              drug = Drug(eachfirstUpper(medicamentPrescris),'','');
           }
           if(drug!=null && !drugs.contains(drug))
             drugs.add(drug);
         }
+      }
+    }
     return drugs;
   }
 

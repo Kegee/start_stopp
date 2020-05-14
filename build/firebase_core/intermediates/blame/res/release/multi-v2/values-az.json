@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\start_stopp\\start_stopp\\build\\firebase_core\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-az\\values-az.xml",
+            "outputFile": "C:\\start_stopp\\build\\firebase_core\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-az\\values-az.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\261dc025d25c759477c05c964fd59a44\\res\\values-az\\values.xml",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "C:\\start_stopp\\start_stopp\\build\\firebase_core\\intermediates\\res\\merged\\release\\values-az\\values-az.xml",
+            "outputFile": "C:\\start_stopp\\build\\firebase_core\\intermediates\\res\\merged\\release\\values-az\\values-az.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\261dc025d25c759477c05c964fd59a44\\res\\values-az\\values.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\start_stopp\\start_stopp\\build\\cloud_firestore\\intermediates\\res\\merged\\release\\values-ms\\values-ms.xml",
+            "outputFile": "C:\\start_stopp\\build\\cloud_firestore\\intermediates\\res\\merged\\release\\values-ms\\values-ms.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-basement-16.1.0.aar\\048df7948e68f4ea761dfce6a845e0f8\\res\\values-ms\\values.xml",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "C:\\start_stopp\\start_stopp\\build\\cloud_firestore\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ms\\values-ms.xml",
+            "outputFile": "C:\\start_stopp\\build\\cloud_firestore\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ms\\values-ms.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Advance\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-basement-16.1.0.aar\\048df7948e68f4ea761dfce6a845e0f8\\res\\values-ms\\values.xml",
